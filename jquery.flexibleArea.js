@@ -33,10 +33,10 @@
 
 			return this.each(function(){
 
-				if (this.type !== 'textarea')	return false;
-					
+				if (this.type !== 'textarea') return false;
+
 				var $textarea = $(this).css({'resize': 'none', overflow: 'hidden'});
-				
+
 				var	$clone = $('<div></div>').css({
 					'position' : 'absolute',
 					'display' : 'none',
@@ -72,7 +72,7 @@
 					var cloneHeight = $clone.height();
 					var overflow = 'hidden';
 					var height = cloneHeight;
-					if (height > maxheight) {
+					if (height >= maxheight) {
 						height = maxheight;
 						overflow = 'auto';
 					} else if (height < minheight) {
@@ -80,6 +80,7 @@
 					}
 					if ($textarea.height() !== height) {
 						$textarea.css({'overflow': overflow, 'height': height + 'px'});
+						setTimeout(function(){ $textarea.css('overflow', overflow); }, 0);
 					}
 				}
 
