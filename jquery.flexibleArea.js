@@ -79,7 +79,7 @@
 						height = minheight;
 					}
 					if ($textarea.height() !== height) {
-						$textarea.css({'overflow': overflow, 'height': height + 'px'});
+						$textarea.css({'overflow': 'hidden', 'height': height + 'px'});
 						setTimeout(function(){ $textarea.css('overflow', overflow); }, 0);
 					}
 				}
